@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ryan Nyce — Communications Portfolio</title>
+<meta name="description" content="Strategic Communication student at Liberty University. Journalism, broadcast, and public relations portfolio."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Karla:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ROOT & RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink:    #0c0c0c;
+  --paper:  #f4efe6;
+  --warm:   #e8e0d2;
+  --red:    #bc1a1a;
+  --mid:    #5a5045;
+  --faint:  #c8bfb0;
+  --white:  #fdfaf5;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes rulerGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.fade-up   { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+.slide-in  { opacity: 0; animation: slideIn 0.6s ease forwards; }
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.25s; }
+.d3 { animation-delay: 0.4s; }
+.d4 { animation-delay: 0.55s; }
+.d5 { animation-delay: 0.7s; }
+.d6 { animation-delay: 0.85s; }
+
+/* ============================================================
+   MASTHEAD / NAVBAR
+   ============================================================ */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  position: sticky; top: 0; z-index: 200;
+  border-bottom: 2px solid var(--red);
+}
+.masthead-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.masthead-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.masthead-links a {
+  color: var(--faint);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.masthead-links a:hover { color: var(--red); }
+.masthead-date {
+  font-size: 0.68rem;
+  color: var(--faint);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.06em;
+}
+
+/* ============================================================
+   HERO / BANNER
+   ============================================================ */
+.hero {
+  min-height: calc(100vh - 52px);
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 2.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background typographic texture */
+.hero::before {
+  content: "COMMUNICATIONS";
+  position: absolute;
+  bottom: -0.2em;
+  right: -0.05em;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(6rem, 15vw, 14rem);
+  font-weight: 700;
+  color: rgba(244,239,230,0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1.8rem;
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4.5rem, 10vw, 9rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+  max-width: 16ch;
+}
+.hero-headline em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hero-rule {
+  width: 80px; height: 2px;
+  background: var(--red);
+  margin-bottom: 2rem;
+  transform-origin: left;
+  animation: rulerGrow 0.6s 0.5s ease forwards;
+  transform: scaleX(0);
+}
+
+.hero-bio {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.65);
+  max-width: 44ch;
+  line-height: 1.85;
+  margin-bottom: 3rem;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.hero-meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.hero-meta-val {
+  font-size: 0.9rem;
+  color: rgba(244,239,230,0.75);
+}
+.hero-meta-val a {
+  color: rgba(244,239,230,0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244,239,230,0.25);
+  transition: border-color 0.2s, color 0.2s;
+}
+.hero-meta-val a:hover { color: var(--paper); border-color: var(--red); }
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.3);
+}
+.scroll-hint::after {
+  content: '';
+  width: 40px; height: 1px;
+  background: rgba(244,239,230,0.3);
+  display: block;
+}
+
+/* ============================================================
+   SECTION CHROME
+   ============================================================ */
+.section-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--faint);
+  padding-bottom: 1.2rem;
+}
+.section-edition {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--red);
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--red);
+  line-height: 1;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   WORK CARDS
+   ============================================================ */
+.work-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.work-card {
+  border-top: 1px solid var(--faint);
+  padding: 2.8rem 0;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  transition: background 0.25s;
+  cursor: default;
+}
+.work-card:last-child { border-bottom: 1px solid var(--faint); }
+.work-card:hover { background: var(--white); margin: 0 -2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; }
+
+.card-sidebar {}
+.card-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+}
+.card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--faint);
+  margin-bottom: 1rem;
+  display: block;
+}
+.card-course {
+  font-size: 0.75rem;
+  color: var(--mid);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.06em;
+}
+
+.card-main {}
+.card-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+.card-deck {
+  font-size: 0.95rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 60ch;
+}
+.card-excerpt {
+  border-left: 3px solid var(--red);
+  padding: 0.9rem 1.3rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  max-width: 55ch;
+  background: var(--warm);
+}
+.card-body {
+  font-size: 0.92rem;
+  color: var(--mid);
+  line-height: 1.85;
+  max-width: 65ch;
+}
+.card-body p { margin-bottom: 0.8rem; }
+
+/* Script table */
+.script-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+}
+.script-table th {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.script-table td {
+  padding: 1rem 1rem;
+  border-bottom: 1px solid var(--warm);
+  vertical-align: top;
+  line-height: 1.75;
+}
+.script-table tr:nth-child(even) td { background: var(--warm); }
+.script-table td:first-child {
+  color: var(--mid);
+  font-size: 0.82rem;
+  width: 30%;
+  font-style: italic;
+}
+
+/* Video embed */
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--faint);
+}
+.video-wrap iframe {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* Release styling */
+.release-banner {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4rem 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.release-grid {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 2rem;
+  align-items: start;
+}
+.release-contact {
+  background: var(--warm);
+  padding: 1.3rem 1.5rem;
+  font-size: 0.82rem;
+  line-height: 2;
+  color: var(--mid);
+  border-top: 3px solid var(--ink);
+}
+.release-contact strong { color: var(--ink); display: block; margin-bottom: 0.3rem; }
+.release-contact a { color: var(--red); text-decoration: none; }
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.about-section {
+  background: var(--ink);
+  color: var(--paper);
+}
+.about-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-left .section-title { color: var(--paper); margin-bottom: 2rem; }
+.about-left p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.65);
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+.about-right {}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+.skill-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(244,239,230,0.2);
+  color: rgba(244,239,230,0.7);
+  transition: border-color 0.2s, color 0.2s;
+}
+.skill-chip:hover { border-color: var(--red); color: var(--paper); }
+.skill-chip.hot { border-color: var(--red); color: var(--red); }
+
+.fact-table { width: 100%; }
+.fact-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(244,239,230,0.1);
+  font-size: 0.88rem;
+}
+.fact-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.fact-val { color: rgba(244,239,230,0.75); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(244,239,230,0.1);
+  padding: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--paper);
+}
+.footer-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(244,239,230,0.3);
+  text-transform: uppercase;
+}
+.footer-contact a {
+  color: var(--red);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .masthead { padding: 0 1.5rem; }
+  .masthead-date { display: none; }
+  .hero { padding: 3rem 1.5rem; }
+  .hero-meta { gap: 1.5rem; }
+  .section-wrap { padding: 3.5rem 1.5rem; }
+  .work-card { grid-template-columns: 1fr; gap: 1rem; }
+  .work-card:hover { margin: 0; padding-left: 0; padding-right: 0; }
+  .card-num { font-size: 3.5rem; margin-bottom: 0.4rem; }
+  .release-grid { grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     MASTHEAD
+     ============================================================ -->
+<nav class="masthead">
+  <span class="masthead-name">Ryan Nyce</span>
+  <ul class="masthead-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:ryannyce1@gmail.com">Contact</a></li>
+  </ul>
+  <span class="masthead-date">Lynchburg, VA · Liberty University</span>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <div class="hero-eyebrow fade-up d1">Strategic Communication · Journalism · PR</div>
+
+  <h1 class="hero-headline fade-up d2">
+    Ryan<br><em>Nyce.</em>
+  </h1>
+
+  <div class="hero-rule"></div>
+
+  <p class="hero-bio fade-up d3">
+    Communications student and aspiring specialist in public affairs writing, broadcast journalism, and news media. Based in Lynchburg, Virginia.
+  </p>
+
+  <div class="hero-meta fade-up d4">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Email</span>
+      <span class="hero-meta-val"><a href="mailto:ryannyce1@gmail.com">ryannyce1@gmail.com</a></span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Phone</span>
+      <span class="hero-meta-val">(267) 370-0716</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Location</span>
+      <span class="hero-meta-val">Lynchburg, VA 24502</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">School</span>
+      <span class="hero-meta-val">Liberty University</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint fade-up d5">Scroll to view work</div>
+</header>
+
+<!-- ============================================================
+     WORK
+     ============================================================ -->
+<section id="work">
+  <div class="section-wrap">
+    <div class="section-header fade-up">
+      <span class="section-edition">Portfolio</span>
+      <h2 class="section-title">Selected Work</h2>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- 01 — NEWS STORY -->
+      <article class="work-card">
+        <div class="card-sidebar">
+          <div class="card-kicker">News Story</div>
+          <span class="card-num">01</span>
+          <div class="card-course">JOUR 225 · Spring 2026</div>
+        </div>
+        <div class="card-main">
+          <h3 class="card-headline">Fire Displaces Boston Family After Dryer Malfunction</h3>
+          <p class="card-deck">Hard-news report covering a residential house fire in Boston's Oak Tree Heights neighborhood, examining fire alarm safety and community impact.</p>
+          <div class="card-excerpt">
+            "I was caught off guard by the fire, but I am thankful we made it out safely," James Henderson said.
+          </div>
+          <div class="card-body">
+            <p>A house fire caused by a dryer malfunction displaced the Henderson family — James, Jennie, and 15-year-old Charlie — early Monday at 4:55 a.m. Local firefighters arrived at 5:07 a.m. and extinguished the fire in approximately two hours.</p>
+            <p>All five smoke alarms in the home were found to be non-functional. Fire Chief Rick Ramirez confirmed the cause and noted that the fire department offers free Saturday safety classes. A GoFundMe has been established for the displaced family.</p>
+            <p>The incident is one of 10 fires in the Boston area over the past six months; seven involved no alarms or faulty ones, resulting in three deaths and six major injuries.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 — VIDEO PACKAGE -->
+      <article class="work-card">
+        <div class="card-sidebar">
+          <div class="card-kicker">Video Package</div>
+          <span class="card-num">02</span>
+          <div class="card-course">JOUR 225 · Spring 2026</div>
+        </div>
+        <div class="card-main">
+          <h3 class="card-headline">Hill City Howlers Rebrand: A New Era for Lynchburg Baseball</h3>
+          <p class="card-deck">Broadcast news package covering the Lynchburg Hillcats' rebrand to the Hill City Howlers for the 2026 Minor League season, featuring a resident interview.</p>
+
+          <div class="video-wrap" id="yt-wrap" style="cursor:pointer;">
+            <img src="https://img.youtube.com/vi/5Mt4I3a73cc/hqdefault.jpg" alt="Hill City Howlers Rebrand video" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"/>
+            <div id="yt-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:68px;background:rgba(188,26,26,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="6,3 21,12 6,21"/></svg>
+            </div>
+          </div>
+          <script>
+            document.getElementById('yt-wrap').addEventListener('click', function() {
+              var iframe = document.createElement('iframe');
+              iframe.src = 'https://www.youtube.com/embed/5Mt4I3a73cc?autoplay=1&rel=0';
+              iframe.title = 'Hill City Howlers Rebrand';
+              iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+              iframe.allowFullscreen = true;
+              iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+              this.innerHTML = '';
+              this.appendChild(iframe);
+            });
+          </script>
+
+          <table class="script-table">
+            <thead>
+              <tr><th>Visuals</th><th>Script</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fade in — Hill City Howlers field &amp; players<br><small>(WDBJ7)</small></td>
+                <td>THE LYNCHBURG HILLCATS HAVE REBRANDED AFTER NEARLY 30 YEARS. THE TEAM ANNOUNCED ON FEBRUARY 13TH THAT IT IS NOW THE HILL CITY HOWLERS, WITH THE CHANGE TAKING EFFECT FOR THE 2026 MINOR LEAGUE SEASON. WITH US NOW IS LYNCHBURG RESIDENT AND LONGTIME BASEBALL FAN ROB NYCE.</td>
+              </tr>
+              <tr>
+                <td>On-screen interview — Rob Nyce, Lynchburg resident</td>
+                <td>"So when I first heard about it, I was actually a little bit disappointed because of the tradition of the Hillcats, but as I thought about it more, if they are looking for fan interaction, I think the Howlers is a perfect name to get the fans to really lean into it and get excited about something new."</td>
+              </tr>
+              <tr>
+                <td>Clip — Hill City Howlers game<br><small>(Cleveland Guardians)</small></td>
+                <td>THE REBRAND MARKS A NEW ERA FOR THE FRANCHISE AS IT LOOKS TO RE-ENERGIZE FANS AND CREATE A STRONGER GAME-DAY EXPERIENCE IN LYNCHBURG.</td>
+              </tr>
+              <tr>
+                <td>Shot — Lynchburg cityscape<br><small>(Visit Lynchburg, VA)</small></td>
+                <td>REPORTING LIVE FROM LYNCHBURG, THIS IS RYAN NYCE.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- 03 — NEWS RELEASE -->
+      <article class="work-card">
+        <div class="card-sidebar">
+          <div class="card-kicker">News Release</div>
+          <span class="card-num">03</span>
+          <div class="card-course">JOUR 225 · Spring 2026</div>
+        </div>
+        <div class="card-main">
+          <h3 class="card-headline">Smoke Out Inc. to Host Fire Safety Event After Oak Tree Fires</h3>
+          <p class="card-deck">A public relations news release drafted on behalf of Smoke Out Inc., promoting a community fire safety event in response to a string of local fires.</p>
+
+          <div class="release-banner">For Immediate Release — April 27, 2026</div>
+
+          <div class="release-grid">
+            <div class="card-body">
+              <p><strong>BOSTON</strong> — Smoke Out Inc. will host a fire safety event on May 15 from 6–9 p.m. at Oak Tree Elementary School, following the recent fires in the Boston neighborhood.</p>
+              <p>The event will provide free smoke detectors for the first 50 attendees (one per family). Additional smoke detectors will be available for purchase.</p>
+              <div class="card-excerpt" style="margin: 1rem 0;">
+                "Smoke detectors save lives. Period. We live in this community too, and it breaks my heart that neighbors have lost loved ones, homes, and precious possessions unnecessarily." — Lee Williams, President
+              </div>
+              <p>The event schedule includes fire safety presentations (6–6:30 p.m.), fire escape route planning (7–7:30 p.m.), family and home protection (8–8:30 p.m.), and a guest speaker at 8:30 p.m. A silent auction, firetruck viewing, and meet-and-greet with Sparky the Fire Dog and Smokey Bear are also planned.</p>
+              <p style="text-align:center; letter-spacing:.2em; font-weight:600; margin-top:1.2rem;">###</p>
+            </div>
+            <div class="release-contact">
+              <strong>Media Contact</strong>
+              Ryan Nyce<br>
+              Communications Specialist<br>
+              Smoke Out, Inc.<br>
+              <a href="mailto:rnyce1@liberty.edu">rnyce1@liberty.edu</a><br>
+              (267) 370-0716
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="section-edition" style="border-color: rgba(244,239,230,0.3); color: var(--red); margin-bottom:1.5rem;">About</div>
+      <h2 class="section-title">Strategic communicator with a journalism focus.</h2>
+      <p>I'm a Strategic Communication student at Liberty University with coursework spanning news writing, broadcast media, graphic design, and public relations. My work centers on clear, accurate storytelling that serves the public interest.</p>
+      <p>I'm particularly drawn to public affairs communication — translating complex or urgent information into content that moves people to act.</p>
+    </div>
+    <div class="about-right">
+      <div class="skills-list">
+        <span class="skill-chip hot">News Writing</span>
+        <span class="skill-chip hot">Broadcast</span>
+        <span class="skill-chip">News Release / PR</span>
+        <span class="skill-chip">AP Style</span>
+        <span class="skill-chip">Media Production</span>
+        <span class="skill-chip">Script Writing</span>
+        <span class="skill-chip">Public Affairs</span>
+      </div>
+      <div class="fact-table">
+        <div class="fact-row">
+          <span class="fact-label">School</span>
+          <span class="fact-val">Liberty University</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">Major</span>
+          <span class="fact-val">Strategic Communication</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">Location</span>
+          <span class="fact-val">Lynchburg, VA 24502</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">Email</span>
+          <span class="fact-val"><a href="mailto:ryannyce1@gmail.com" style="color:var(--red);">ryannyce1@gmail.com</a></span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-label">Phone</span>
+          <span class="fact-val">(267) 370-0716</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <span class="footer-logo">Ryan Nyce</span>
+  <span class="footer-copy">Strategic Communication · Liberty University · 2026</span>
+  <span class="footer-contact"><a href="mailto:ryannyce1@gmail.com">ryannyce1@gmail.com</a></span>
+</footer>
+
+</body>
+</html>
